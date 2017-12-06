@@ -7,7 +7,7 @@
     <facet type="web" name="Web">
       <configuration>
         <webroots>
-          <root url="file://$MODULE_DIR$/src/main/resources" relative="/" />
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
@@ -93,5 +93,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-devtools:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.5.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.7.3" level="project" />
   </component>
 </module>
