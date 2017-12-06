@@ -4,6 +4,7 @@
 .classpath
 .project
 .settings
+cms.iml
  ##filter databfile、sln file##
 *.mdb  
 *.ldb  
