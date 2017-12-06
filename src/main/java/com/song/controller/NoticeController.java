@@ -113,8 +113,10 @@ public class NoticeController {
             if(Utility.isNotEmpty(id)){
 
                 Notice notice = noticeService.getNoticeById(Long.valueOf(id));
-                noticeService.publish(Long.valueOf(id));                     //将通知改为已发布
-                List<Notice> noticeList = noticeService.getPublishList();     //获取已发布列表
+                if(Utility.isNotEmpty(notice)){
+                    noticeService.publish(Long.valueOf(id));                     //将通知改为已发布
+                }
+                /*List<Notice> noticeList = noticeService.getPublishList();     //获取已发布列表
 //                String fileName = renderFileName(Constants.NOTICE_PATH,Constants.SUFFIX_HTML);
                 String outPath = Constants.NOTICE_PATH+File.separator+"notice.html";
                 PrintStream printStream = new PrintStream(new FileOutputStream(
@@ -140,13 +142,13 @@ public class NoticeController {
                 sb.append("</html>\n");
 
                 printStream.println(sb.toString());
-                printStream.close();
+                printStream.close();*/
                 return  DseResult.success("发布成功！");
             }else{
-                return DseResult.faild("获取文件失败!");
+                return DseResult.faild("发布失败!");
             }
-        }catch (FileNotFoundException e){
-           return DseResult.faild("文件生成失败!");
+        }catch (Exception e){
+           return DseResult.faild("发布失败!");
         }
 
     }

@@ -1,6 +1,5 @@
 package com.song.interceptor;
 
-import com.song.configuration.WebConfig;
 import com.song.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
