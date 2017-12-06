@@ -77,10 +77,11 @@ public class LoginController extends BaseController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    @ResponseBody
+    public Response logout(HttpSession session) {
         // 移除session
         session.removeAttribute(Constants.USER_SESSION_KEY);
-        return "redirect:/login";
+        return result(ExceptionMsg.SUCCESS);
     }
 
     /**
