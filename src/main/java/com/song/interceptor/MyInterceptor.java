@@ -31,6 +31,11 @@ public class MyInterceptor implements HandlerInterceptor {
         if(requetUrl.contains("/admin/")){
             return true;
         }
+        if(requetUrl.contains("/error")){
+            logger.info("拦截error ");
+            response.sendRedirect(request.getContextPath()+"/admin/login");
+            return false;
+        }
         //判断用户ID是否存在，不存在就跳转到登录界面
         if(session.getAttribute(Constants.USER_SESSION_KEY) == null){
             logger.info("------:跳转到login页面！");
@@ -45,14 +50,12 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-        // TODO Auto-generated method stub
 
     }
 
