@@ -51,9 +51,11 @@ public class NoticeController {
         else return "null";
     }*/
 
-    @RequestMapping(value = "/getList")
+    @RequestMapping(value = "/getList",produces = "application/json;charset=utf-8")
     @ResponseBody
-    public Object getList( String title,  Integer page,Integer size){
+    public Object getList( HttpServletRequest request, String title, Integer page,Integer size) throws UnsupportedEncodingException {
+        //解决乱码问题
+//        String title = new String(request.getParameter("title").getBytes("iso-8859-1"), "utf-8");
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(page, size,sort);
         Page<Notice> pages=noticeService.findByNameLike(title,pageable);
